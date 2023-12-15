@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mongo-tls-config
+  namespace: nirmata
+data:
+  mongod.conf: |
+    security:
+      keyFile: | 
+      UmO57af+3XKyQUN9iAMCN5F97VPGyrjvKHD9BFMPflQrJ+vl0la+tGFiyOhq9BvH
+      R4nVZ9dULp2TO1WBL9DaGXxIRrImqaKLKbMEaR5VvC9WoC8YjHKuAM1bpqO/nY/6
+      /CiqkA4HLpDJwy9jBYJlbdxhk6/73P4mV4HkdiRVs36TO8ScaxKHVWMNfeXqY+DO
+      fu7jBQKys7crYRm9VAFYNLVIDDg0q5pkk5CyeGcJ56jJjRwdK6iozBR7q0pBIgO9
+      Vpgso+BvnlqhxiPmKcRK9/aM5IkKaI0nAY2XOJ/KouVGGz/pmCT0yAVK70147bys
+      r67B9ZjqJrt27Z6oXIWOKydHtvlsIf2nqEigUmw9z/TYSHPWEhqQMG+asWfa/30Y
+      RuzWF2f7g1btHhAVmLzP7hA7ghqUiQx9JodXnq3H1m0f8KdhXx4vkM2IgPfqIDjs
+      +RViZTOK1nz6hXAL2rO+V4XCZAKiCL9C3VoR9VBfD7Z00yRNZah1kMV6kjno7G1I
+      jKPqfg0KzkWnCufLeCAoMH2PPP9VRocDKrV06SucC8Hp8Qj1SVWz0K8CCMh4BP0y
+      z/MwHd1ZbBXrheSisHPNCa2SB0wRsrN/I2eh9exp4zhY17zl728sCkUSt30yPHI8
+      ALiXNyRSK2V6jW1I7IxJ+8yG2Uh659C8o8d7Z6q0G+XYBll0gls2a5itXh7c/nZ5
+      RJthslEnAfwh/aA0JNt9yfrVnDjrIxrHJYR+ICb/yACvbp6xBHGEUqAA+U2vczfw
+      JP+8LPpdzCtf8o/wApXFcexeCC3IofUpgUoD+IFxm4J2HVoFEpCvwe6zMfuAjtgd
+      w8erffN1LSGAus1q6XTu7Wbt0qkVHqsfUHLxHZGcmB7LJtT2eU76sByPWEjnV8n1
+      b3XwSaybcBGZMA+Gpp5KKajNcV2n4d0CXJEADtcrk26OC0EKhjOw91+PrVmhM2T/
+      rhTHkCOhD4K6hNBV79+v5xrfDszIePHJL1zfD45FgQS3kVp9
+      authorization: enabled
+    net:
+      tls:
+        mode: requireTLS
+        certificateKeyFile: /etc/ssl/mongodb.pem
+        CAFile: /etc/ssl/root-ca.pem
+        allowConnectionsWithoutCertificates: true

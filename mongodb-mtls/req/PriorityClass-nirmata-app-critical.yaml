@@ -1,0 +1,8 @@
+---
+apiVersion: "scheduling.k8s.io/v1"
+description: "Used for Nirmata app services with higher priority."
+kind: "PriorityClass"
+metadata:
+  name: "nirmata-app-critical"
+  labels: {}
+value: 900000

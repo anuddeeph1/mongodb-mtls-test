@@ -1,0 +1,8 @@
+---
+apiVersion: "scheduling.k8s.io/v1"
+description: "Used for Nirmata cluster service taking higher priority."
+kind: "PriorityClass"
+metadata:
+  name: "nirmata-clustersvc-critical"
+preemptionPolicy: PreemptLowerPriority
+value: 950000

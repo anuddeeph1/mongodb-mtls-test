@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mongo-tls-config
+  namespace: nirmata
+data:
+  mongod.conf: |
+    security:
+      keyFile: /etc/ssl/mongo/mongodb.key
+      authorization: enabled
+    net:
+      tls:
+        mode: requireTLS
+        certificateKeyFile: /etc/ssl/mongodb.pem
+        CAFile: /etc/ssl/root-ca.pem
+        allowConnectionsWithoutCertificates: true
+        allowInvalidHostnames: true
+

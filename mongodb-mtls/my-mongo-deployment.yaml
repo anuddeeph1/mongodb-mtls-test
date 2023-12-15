@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-mongo
+spec:
+  selector:
+    matchLabels:
+      app: my-mongo
+      environment: my
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: my-mongo
+        environment: my
+    spec:
+      hostname: my-mongo
+      volumes:
+        - name: my-mongo-persistent-storage
+          persistentVolumeClaim:
+            claimName: my-mongo-pvc
+      containers:
+        - name: my-mongo
+          image: mongo:3.6
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 27017
+          volumeMounts:
+            - name: my-mongo-persistent-storage
+              mountPath: /data/db
